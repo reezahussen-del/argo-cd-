@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: cont2
-          image: shaikmustafa/cycle
+          image: shaikmustafa/dm
           ports:
             - containerPort: 80
 
