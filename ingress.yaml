@@ -4,36 +4,35 @@ kind: Ingress
 
 metadata:
   name: myingress
-
-   annotations:
+  annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-
 
 spec:
   ingressClassName: nginx
+
   rules:
-    -http:
-      paths:
-        - path: /nginx
-          pathType: Prefix
-          backend:
-            service:
-              name: frontend
-              port:
-                number: 80
-        - path: /nttpd
-          pathType: Prefix
-          backend:
-            service:
-              name: backend
-              port:
-                number: 80
-        - path: /shaikmustafa/cycle
-          pathType: Prefix
-          backend:
-            service:
-              name: db
-              port:
-                number: 80
+    - http:
+        paths:
+          - path: /nginx
+            pathType: Prefix
+            backend:
+              service:
+                name: frontend-service
+                port:
+                  number: 80
 
+          - path: /httpd
+            pathType: Prefix
+            backend:
+              service:
+                name: backend-service
+                port:
+                  number: 80
 
+          - path: /shaikmustafa/cycle
+            pathType: Prefix
+            backend:
+              service:
+                name: db-service
+                port:
+                  number: 80
